@@ -1,5 +1,6 @@
 require "wordmastermind/version"
+require "wordmastermind/game"
 
 module Wordmastermind
-  # Your code goes here...
+  @game = Game.new
 end
