@@ -35,14 +35,14 @@ class Engine
     correct = ""
     #Correct word position
     correct_position = SIZE - bulls
+    #InCorrect word position
     incorrect_position = correct_position - 1
+    #InCorrect letter
     incorrect_letter = last_guess_arr[incorrect_position]
 
     if bulls > 0
       #Extract correct substring
       correct = last_guess_arr.last(bulls).join("").to_s
-    else
-
     end
 
     if !cows.nil?
@@ -52,8 +52,10 @@ class Engine
         @ignored = last_guess_arr.first(SIZE - bulls)
       elsif (cows + bulls == SIZE)
         #if cows + bulls = limit then discard all other letter - add them in ingore list
+        #@TODO : It will not work for the case when actual word is ABCD and guess word is ABXD ( bulls - 1 Cows - 0 )
         @ignored = @allowed - last_guess_arr.last(bulls) -last_guess_arr.first(cows)
       elsif (cows == 0 && bulls == 0)
+        # @TODO: implement letter ranking to predict next correct letter
         # @ignored = [last_guess_arr.last]
       end
     end
@@ -68,10 +70,12 @@ class Engine
         end
       end
       guess_arr = guess.split(//)
+      #bulls -1 will always have incorrect letter - we can remove it
       if guess_arr[incorrect_position] == incorrect_letter
         puts guess
         next(false)
       end
+      #ignore all incorrect letter containing words
       if ((guess_arr & @ignored).length > 0)
         next(false)
       end
