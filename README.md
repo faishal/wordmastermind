@@ -1,38 +1,23 @@
-# Wordmastermind
+# Word Master Mind
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wordmastermind`. To experiment with that code, run `bin/console` for an interactive prompt.
+Command  line program in ruby that accurately and efficiently guesses the word in 4 letter word Cows and Bulls game.
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'wordmastermind'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install wordmastermind
+* One player, the Chooser, thinks of a four-letter word and the other player, the Guesser, tries to guess it.
+* At each turn the Guesser tries a four-letter word, and the Chooser says how close it is to the answer by giving:
+* The number of Bulls - letters correct in the right position.
+* The number of Cows - letters correct but in the wrong position.
+* The Guesser tries to guess the answer in the fewest number of turns.
+* The word to be guessed should not have repeating letters. Example, BOOK, TILT, KICK, BASS etc. are not allowed.
 
 ## Usage
 
-TODO: Write usage instructions here
+After checking out the repo, run `bin/setup` to install dependencies. 
+Then run `bin/console` for an interactive prompt that will start the game.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/wordmastermind.
+Bug reports and pull requests are welcome on GitHub at https://github.com/faishal/wordmastermind.
 
 
 ## License
