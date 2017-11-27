@@ -6,6 +6,7 @@ class CpuPlayer < Player
   end
 
   def guess(bulls, cows)
-    # @todo write the engine
+    @engine.check(bulls, cows)
+    say @engine.current_guess.upcase
   end
 end

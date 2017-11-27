@@ -9,7 +9,7 @@ class Game
     @retry_max = 5
     @retry_count = 0
     @bulls = 0
-    @cows = 0
+    @cows = nil
 
     @chooser = HumanPlayer.new
     @guessor = CpuPlayer.new
@@ -23,7 +23,7 @@ class Game
     end
 
     loop do
-      @guessor.guess(@bulls, $cows)
+      @guessor.guess(@bulls, @cows)
 
       @new_bulls = @chooser.get_bulls
       @new_cows = @chooser.get_cows
@@ -35,6 +35,7 @@ class Game
         @cows = @new_cows
       end
       break if finished?
+
     end
   end
 

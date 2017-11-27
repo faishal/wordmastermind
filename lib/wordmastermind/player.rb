@@ -21,6 +21,7 @@ require "highline/import"
     end
 
     def ready?
+      return true
       confirm = @chooser.ask("Did you guessed the 4 letter word? [Y/N]") {|yn| yn.limit = 1, yn.validate = /[yn]/i}
       confirm.downcase == 'y'
     end
