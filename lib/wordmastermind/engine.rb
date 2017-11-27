@@ -13,7 +13,6 @@ class Engine
 
   def check(bulls, cows)
     filter_candidates(bulls, cows)
-    puts "Now : " + @candidates.length.to_s
     candidates.any? && guess
   end
 
