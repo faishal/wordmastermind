@@ -8,7 +8,7 @@ class Engine
     @ranking = []
     @allowed = [*'a'..'z']
     @try_count = 0
-    @candidates = File.read(File.dirname(__FILE__) +"/../../db/list.txt").split("\n")
+    @candidates = File.read(File.dirname(__FILE__) +"/../../db/list.txt").split("\n").uniq
   end
 
   def check(bulls, cows)
@@ -35,9 +35,14 @@ class Engine
     correct = ""
     #Correct word position
     correct_position = SIZE - bulls
+    incorrect_position = correct_position - 1
+    incorrect_letter = last_guess_arr[incorrect_position]
+
     if bulls > 0
       #Extract correct substring
       correct = last_guess_arr.last(bulls).join("").to_s
+    else
+
     end
 
     if !cows.nil?
@@ -52,14 +57,22 @@ class Engine
         # @ignored = [last_guess_arr.last]
       end
     end
-
+    if @candidates.length == 0
+      puts "Something went wrong : check your input !! "
+      exit
+    end
     @candidates = candidates.select do |guess|
       if !correct.empty?
         if guess.index(correct) != correct_position
           next(false) #if not word doesn't have bulls in correct position
         end
       end
-      if ((guess.split(//) & @ignored).length > 0) #
+      guess_arr = guess.split(//)
+      if guess_arr[incorrect_position] == incorrect_letter
+        puts guess
+        next(false)
+      end
+      if ((guess_arr & @ignored).length > 0)
         next(false)
       end
       next(true)

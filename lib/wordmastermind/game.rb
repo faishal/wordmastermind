@@ -35,8 +35,9 @@ class Game
         @cows = @new_cows
       end
       break if finished?
-
     end
+    @chooser.say "You word is " + @guessor.get_current_guess
+    @chooser.say "Total tries : " + @guessor.get_try_count.to_s
   end
 
   def is_valid_bulls_cows(bulls, cows)
