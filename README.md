@@ -11,9 +11,18 @@ Command  line program in ruby that accurately and efficiently guesses the word i
 
 ## Usage
 
-After checking out the repo, run `bin/setup` to install dependencies. 
-Then run `bin/console` for an interactive prompt that will start the game.
+* Checkout repository 
+* Install Bundler
 
+		sudo gem install bundler
+
+* Install dependencies
+		
+		./bin/setup
+
+* Start the game
+	
+		./bin/console
 
 ## Contributing
 
